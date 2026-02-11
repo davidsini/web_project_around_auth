@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 72px;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 880px;
+  padding: 40px 0 0;
+  box-sizing: content-box;
+}
+
+.header__logo {
+  width: 133px;
+}
+
+.header__line {
+  border: none;
+  height: 2px;
+  background-color: #545454;
+  width: 100%;
+}

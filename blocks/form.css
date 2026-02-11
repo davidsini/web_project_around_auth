@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+
+.form__description {
+  color: black;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 880px) {
+  .form__description {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .form__description {
+    font-size: 18px;
+  }
+  .popup__button {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .popup__form {
+    gap: 10px;
+  }
+}

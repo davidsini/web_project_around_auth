@@ -1,0 +1,41 @@
+.page__main-container {
+  max-width: 880px;
+  margin: 30px auto;
+}
+
+.content {
+  width: 100%;
+}
+
+h1 {
+  margin: 0;
+}
+
+html {
+  background-color: black;
+  font-family: "Inter";
+  color: white;
+}
+
+.page {
+  background-color: black;
+  padding: 45px 0px 0px;
+}
+
+.page__content {
+  max-width: 880px; /* El ancho estándar de tu proyecto */
+  margin: 0 auto; /* Esto centra todo el bloque */
+  width: 100%;
+}
+
+@media (max-width: 320px) {
+  .page__main-container {
+    max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .page__main-container {
+    max-width: 95%;
+  }
+}
