@@ -9,12 +9,12 @@ import EditProfile from "./form/EditProfile/EditProfile.jsx";
 import NewCard from "./form/NewCard/NewCard.jsx";
 import EditAvatar from "./form/EditAvatar/EditAvatar.jsx";
 import api from "../utils/api.js";
-import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
-import ProtectedRoute from "./ProtectedRoute.jsx";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
 import Login from "./Login.jsx";
 import Register from "./Register.jsx";
 import InfoTooltip from "./InfoTooltip.jsx";
 import * as auth from "../utils/auth.js";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
   // Variables de estado

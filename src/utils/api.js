@@ -1,5 +1,3 @@
-// src/utils/api.js
-
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -81,7 +79,7 @@ class Api {
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web_es_12", // Asegúrate de que este sea tu ID de grupo correcto
   headers: {
-    authorization: "TU_TOKEN_ORIGINAL_SI_APLICA", // Inicialmente puede estar vacío o fijo si usabas token fijo
+    authorization: `Bearer ${localStorage.getItem("jwt")}`, // Inicialmente puede estar vacío o fijo si usabas token fijo
     "Content-Type": "application/json",
   },
 });

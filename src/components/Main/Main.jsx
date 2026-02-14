@@ -32,7 +32,7 @@ export default function Main({
             <div className="profile__avatar-wrapper">
               <img
                 className="profile__picture"
-                src={currentUser.avatar}
+                src={currentUser?.avatar}
                 alt="Perfil"
               />
               <div
@@ -41,14 +41,14 @@ export default function Main({
             </div>
             <div className="profile__info-w-button">
               <div className="profile__info">
-                <h1 className="profile__name">{currentUser.name}</h1>
+                <h1 className="profile__name">{currentUser?.name}</h1>
                 <img
                   src="/images/edit-button.svg"
                   className="profile__edit-button"
                   onClick={onEditProfileClick}
                 />
               </div>
-              <p className="profile__occupation">{currentUser.about}</p>
+              <p className="profile__occupation">{currentUser?.about}</p>
             </div>
           </div>
           <button className="profile__add-button" onClick={onAddPlaceClick} />
