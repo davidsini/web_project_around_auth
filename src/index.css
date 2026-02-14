@@ -6,6 +6,152 @@
 @import url(../blocks/gallery.css);
 @import url(../blocks/footer.css);
 @import url(../blocks/popup.css);
-/* @import url(../blocks/form.css); ELIMINADO */
-/* @import url(../blocks/popUpCard.css); ELIMINADO */
 @import url(../blocks/imagePopUp.css);
+
+/* Estilos para autenticación (Login/Register) */
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  color: #fff;
+  min-height: calc(100vh - 200px); /* Ajuste visual */
+}
+
+.auth__title {
+  margin: 0 0 50px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 358px;
+}
+
+.auth__input {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  color: #fff;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  font-size: 14px;
+  outline: none;
+}
+
+.auth__input::placeholder {
+  color: #ccc;
+}
+
+.auth__button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 2px;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  transition: opacity 0.3s;
+}
+
+.auth__button:hover {
+  opacity: 0.85;
+}
+
+.auth__text {
+  font-size: 14px;
+  margin: 0;
+}
+
+.auth__link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.auth__link:hover {
+  opacity: 0.6;
+}
+
+/* Estilos para el Header (Enlaces y Logout) */
+.header__auth-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.header__link {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.header__link:hover {
+  opacity: 0.6;
+}
+
+.header__logout {
+  background: none;
+  border: none;
+  color: #a9a9a9;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+}
+
+.header__logout:hover {
+  opacity: 0.6;
+}
+
+/* Estilos para InfoTooltip */
+.popup__container_type_tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 36px;
+}
+
+.popup__icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 32px;
+  object-fit: contain;
+}
+
+.popup__title_type_tooltip {
+  text-align: center;
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+/* Responsivo para auth */
+@media screen and (max-width: 600px) {
+  .auth__title {
+    font-size: 20px;
+  }
+
+  .auth__input {
+    font-size: 12px;
+  }
+
+  .popup__icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .popup__title_type_tooltip {
+    font-size: 20px;
+  }
+}
