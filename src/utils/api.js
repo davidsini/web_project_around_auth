@@ -4,6 +4,10 @@ class Api {
     this._headers = headers;
   }
 
+  setToken(token) {
+    this._headers.authorization = `Bearer ${token}`;
+  }
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
@@ -77,7 +81,7 @@ class Api {
 
 // Configura tu URL base original del proyecto anterior aquí
 const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web_es_12", // Asegúrate de que este sea tu ID de grupo correcto
+  baseUrl: "https://around.nomoreparties.co/v1/web_es_31", // Asegúrate de que este sea tu ID de grupo correcto
   headers: {
     authorization: `Bearer ${localStorage.getItem("jwt")}`, // Inicialmente puede estar vacío o fijo si usabas token fijo
     "Content-Type": "application/json",

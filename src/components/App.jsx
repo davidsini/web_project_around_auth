@@ -45,6 +45,7 @@ function App() {
           if (res) {
             setIsLoggedIn(true);
             setEmail(res.data.email);
+            api.setToken(token);
             navigate("/");
           }
         })
@@ -76,6 +77,7 @@ function App() {
           localStorage.setItem("jwt", data.token);
           setIsLoggedIn(true);
           setEmail(email);
+          api.setToken(data.token);
           navigate("/");
         }
       })
