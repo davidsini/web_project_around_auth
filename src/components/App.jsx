@@ -1,4 +1,3 @@
-// src/components/App.jsx
 import { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Header from "./Header/Header.jsx";
@@ -45,7 +44,7 @@ function App() {
           if (res) {
             setIsLoggedIn(true);
             setEmail(res.data.email);
-            api.setToken(token);
+            api.setToken(token); // aquí está el problema
             navigate("/");
           }
         })
@@ -57,7 +56,7 @@ function App() {
   useEffect(() => {
     if (isLoggedIn) {
       const token = localStorage.getItem("jwt");
-      api.setToken(token); // Configurar token en API
+      api.setToken(token); // aquí está el problema
 
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cardsData]) => {

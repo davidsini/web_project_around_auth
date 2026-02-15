@@ -15,11 +15,6 @@ class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  // Método para actualizar el token dinámicamente
-  setToken(token) {
-    this._headers["Authorization"] = `Bearer ${token}`;
-  }
-
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
@@ -54,7 +49,7 @@ class Api {
   }
 
   addCard(name, link) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/cards/`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
@@ -79,11 +74,10 @@ class Api {
   }
 }
 
-// Configura tu URL base original del proyecto anterior aquí
 const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web_es_31", // Asegúrate de que este sea tu ID de grupo correcto
+  baseUrl: "https://around-api.es.tripleten-services.com/v1",
   headers: {
-    authorization: `Bearer ${localStorage.getItem("jwt")}`, // Inicialmente puede estar vacío o fijo si usabas token fijo
+    authorization: "0727e918-236a-4454-ba88-94aa79b3a1d2",
     "Content-Type": "application/json",
   },
 });
