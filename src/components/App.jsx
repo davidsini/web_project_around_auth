@@ -1,9 +1,9 @@
-// src/components/App.jsx
 import { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Header from "./Header/Header.jsx";
 import Main from "./Main/Main.jsx";
 import Footer from "./Footer/Footer.jsx";
+import Popup from "./Main/components/Popup/Popup.jsx";
 import ImagePopUp from "./Main/components/Popup/ImagePopUp.jsx";
 import EditProfile from "./form/EditProfile/EditProfile.jsx";
 import NewCard from "./form/NewCard/NewCard.jsx";
@@ -216,26 +216,33 @@ function App() {
 
         {isLoggedIn && <Footer />}
 
-        <EditProfile
+        <Popup
+          title="Editar perfil"
           isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
-        />
-        <NewCard
+          onClose={closeAllPopups}>
+          <EditProfile onUpdateUser={handleUpdateUser} />
+        </Popup>
+
+        <Popup
+          title="Nuevo lugar"
           isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onAddPlaceSubmit={handleAddPlaceSubmit}
-        />
-        <EditAvatar
+          onClose={closeAllPopups}>
+          <NewCard onAddPlaceSubmit={handleAddPlaceSubmit} />
+        </Popup>
+
+        <Popup
+          title="Cambiar foto de perfil"
           isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-        />
+          onClose={closeAllPopups}>
+          <EditAvatar onUpdateAvatar={handleUpdateAvatar} />
+        </Popup>
+
         <ImagePopUp
           card={selectedCard}
           isOpen={isImagePopupOpen}
           onClose={closeAllPopups}
         />
+
         <InfoTooltip
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}

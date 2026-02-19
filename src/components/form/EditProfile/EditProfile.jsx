@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 
-export default function EditProfile(props) {
-  const { currentUser, handleUpdateUser } = useContext(CurrentUserContext);
+export default function EditProfile({ onUpdateUser }) {
+  const { currentUser } = useContext(CurrentUserContext);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
@@ -15,7 +15,7 @@ export default function EditProfile(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleUpdateUser({ name, about: description });
+    onUpdateUser({ name, about: description });
   }
 
   return (

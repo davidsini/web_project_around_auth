@@ -3,10 +3,11 @@
   flex-direction: column;
   height: 72px;
   justify-content: space-between;
-  margin: auto;
+  margin: 0 auto;
   max-width: 880px;
-  padding: 40px 0 0;
-  box-sizing: content-box;
+  padding: 40px 20px 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .header__logo {
