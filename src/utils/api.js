@@ -1,11 +1,17 @@
+/**
+ * API Around (cards, perfil) - Sprint 12
+ * URL: https://around-api.es.tripleten-services.com/v1/
+ * Token: el creado en Sprint 12 (NO mezclar con JWT del login).
+ * JWT solo para se-register-api (auth.js).
+ */
+
+// Token de la API - el del Sprint 12 (davidsini/web_project_around_react)
+const API_TOKEN = "0727e918-236a-4454-ba88-94aa79b3a1d2";
+
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
-  }
-
-  setToken(token) {
-    this._headers.authorization = `Bearer ${token}`;
   }
 
   _checkResponse(res) {
@@ -31,10 +37,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        name,
-        about,
-      }),
+      body: JSON.stringify({ name, about }),
     }).then(this._checkResponse);
   }
 
@@ -42,20 +45,15 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        avatar,
-      }),
+      body: JSON.stringify({ avatar }),
     }).then(this._checkResponse);
   }
 
   addCard(name, link) {
-    return fetch(`${this._baseUrl}/cards/`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify({
-        name,
-        link,
-      }),
+      body: JSON.stringify({ name, link }),
     }).then(this._checkResponse);
   }
 
@@ -77,9 +75,11 @@ class Api {
 const api = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
   headers: {
-    authorization: "0727e918-236a-4454-ba88-94aa79b3a1d2",
+    authorization: API_TOKEN,
     "Content-Type": "application/json",
   },
 });
 
 export default api;
+
+api.js;

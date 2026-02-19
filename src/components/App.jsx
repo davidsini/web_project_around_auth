@@ -1,3 +1,4 @@
+// src/components/App.jsx
 import { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Header from "./Header/Header.jsx";
@@ -43,8 +44,7 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            setEmail(res.data.email);
-            api.setToken(token); // aquí está el problema
+            setEmail(res.data?.email ?? res.email ?? "");
             navigate("/");
           }
         })
@@ -52,12 +52,9 @@ function App() {
     }
   }, [navigate]);
 
-  // Cargar datos iniciales solo si está logueado
+  // Cargar datos iniciales solo si está logueado (API usa token Sprint 12, no JWT)
   useEffect(() => {
     if (isLoggedIn) {
-      const token = localStorage.getItem("jwt");
-      api.setToken(token); // aquí está el problema
-
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cardsData]) => {
           setCurrentUser(userData);
@@ -76,7 +73,6 @@ function App() {
           localStorage.setItem("jwt", data.token);
           setIsLoggedIn(true);
           setEmail(email);
-          api.setToken(data.token);
           navigate("/");
         }
       })
