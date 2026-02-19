@@ -182,7 +182,7 @@ function App() {
   }
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={{ currentUser }}>
       <div className="page">
         <Header email={email} onSignOut={handleSignOut} />
 

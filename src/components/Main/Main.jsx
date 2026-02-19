@@ -57,7 +57,7 @@ export default function Main({
 
       <section className="cards">
         <ul className="cards__list">
-          {cards.map((card) => (
+          {Array.isArray(cards) && cards.map((card) => (
             <Card
               key={card._id}
               card={card}

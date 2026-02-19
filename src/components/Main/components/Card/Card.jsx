@@ -4,6 +4,10 @@ import { CurrentUserContext } from "../../../../contexts/CurrentUserContext.js";
 export default function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const { currentUser } = useContext(CurrentUserContext);
 
+  if (!card || !currentUser) {
+    return null;
+  }
+
   const { name, link, owner = {}, likes = [] } = card;
 
   const isOwn = owner._id === currentUser._id;
